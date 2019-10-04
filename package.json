@@ -1,0 +1,14 @@
+{
+  "name": "intern-r-us",
+  "version": "1.0.0",
+  "description": "Inters",
+  "main": "app.js",
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {},
+  "author": "dirwin517",
+  "license": "UNLICENSED"
+}

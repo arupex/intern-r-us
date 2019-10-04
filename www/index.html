@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Internship</title>
+
+    <script
+            src="//code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          id="fontawesme">
+    <link href="style.css" rel="stylesheet" id="stylez">
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+                var $target = $(e.target);
+
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+
+            $(".next-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                $active.next().removeClass('disabled');
+                nextTab($active);
+
+            });
+            $(".prev-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                prevTab($active);
+
+            });
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <section>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+
+
+                        <li role="presentation" class="active">
+                            <a href="#step0" data-toggle="tab" aria-controls="step0" role="tab" title="Step 0">
+                            <span class="round-tab">
+                                <i class="">0</i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="">1</i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="">2</i>
+                            </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="">3</i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step4" data-toggle="tab" aria-controls="complete" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="">4</i>
+                            </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step5" data-toggle="tab" aria-controls="complete" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="">5</i>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <form role="form" action="/intern?" method="post">
+                    <div class="tab-content">
+
+                        <div class="tab-pane active" role="tabpanel" id="step0">
+                            <h2>Who Are We?</h2>
+
+                            <div>
+                                <h3>At BlueWave Solar our main focus is Community Solar programs, what is Community Solar?</h3>
+                                Community Solar is Solar Farms owned which consumers can recieve credits from by signing up to be part of the farm.
+                                <br><br>
+                                <h3>What do we do at BlueWave Solar in the Engineering Department?</h3>
+                                <br><br>
+                                Engineering works on making it easier for the consumer to join the movement!
+                                We work on making a simple experience for users to join, while seeing what value we can bring to them.
+                                We also make it easier for sales people to sell community solar to communities via our partner portal.
+                                <br><br>
+                                <h3>What Technologies do we use?</h3><br>
+                                <img src="techlogos/aws.svg" height="128" width="128">
+                                <img src="techlogos/java.svg" height="128" width="128">
+                                <img src="techlogos/javascript.png" height="128" width="128">
+                                <img src="techlogos/mysql.svg" height="128" width="128">
+                                <img src="techlogos/springboot.png" height="128" width="128">
+
+                            </div>
+
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-pane" role="tabpanel" id="step1">
+                            <h3>Who Are You?</h3>
+
+                            <table>
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td><input name="name" id="name" type="text" required></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <hr>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><label>Phone for follow-up:</label></td>
+                                    <td><input name="phone" id="phone" type="tel" required></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <hr>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Select The Blocks You'd be Availible For</td>
+                                </tr>
+                                <tr>
+                                    <td><label>Winter 2019-2020:</label></td>
+                                    <td><input name="winter2019" id="winter2019" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Spring 2020:</label></td>
+                                    <td><input name="spring2020" id="spring2020" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Summer 2020:</label>
+                                    <td><input name="summer2020" id="summer2020" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Fall 2020:</label></td>
+                                    <td><input name="fall2020" id="fall2020" type="checkbox"></td>
+                                </tr>
+
+                            </table>
+
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-default prev-step">Back</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <h3>We have offices in Rochester, NY and Boston, MA were would you be available to
+                                work?</h3>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>Boston:</label></td>
+                                    <td><input name="officePreferenceBoston" id="officePreferenceBoston"
+                                               type="checkbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Rochester:</label></td>
+                                    <td><input name="officePreferenceRochester" id="officePreferenceRochester"
+                                               type="checkbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>I'm Up for Either:</label></td>
+                                    <td><input name="officePreferenceNone" id="officePreferenceNone" type="checkbox">
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-default prev-step">Back</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h3>What was your first line of code. What got you into Programming</h3>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>When:</label>
+                                    </td>
+                                    <td><input name="firstCodeWhen" id="firstCodeWhen" type="text" required></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Language:</label></td>
+                                    <td><input name="firstCodeLang" id="firstCodeLang" type="text" required></td>
+                                </tr>
+                                <tr>
+                                    <td><label>What did it do:</label></td>
+                                    <td><textarea name="firstCodeWhat" id="firstCodeWhat" required></textarea></td>
+                                </tr>
+                            </table>
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-default prev-step">Back</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step4">
+                            <h3>What Kind of outside of School Projects have you done</h3>
+
+                            <table>
+                                <tr>
+                                    <td><label>What did it do:<textarea name="outsideCodeWhat"
+                                                                        id="outsideCodeWhat"></textarea></label></td>
+                                </tr>
+                            </table>
+
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-default prev-step">Back</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary next-step">Next</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step5">
+                            <h3>Any Questions for Me?</h3>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label><textarea name="questionsForMe" id="questionsForMe"></textarea></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Would you Be available for a short Interview Tuesday next week on Campus? If so what time(s) possibly work for you?</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label>9:00am</label></td><td><input name="interview9" id="interview900" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>9:30am</label></td><td><input name="interview9" id="interview930" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>10:00am</label></td><td><input name="interview9" id="interview1000" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>10:30am</label></td><td><input name="interview9" id="interview1030" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>11:00am</label></td><td><input name="interview9" id="interview1100" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>11:30am</label></td><td><input name="interview9" id="interview1130" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>12:00pm</label></td><td><input name="interview9" id="interview1200" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>12:30pm</label></td><td><input name="interview9" id="interview1230" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>1:00pm</label></td><td><input name="interview9" id="interview1300" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>1:30pm</label></td><td><input name="interview9" id="interview1330" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>2:00pm</label></td><td><input name="interview9" id="interview1400" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>2:30pm</label></td><td><input name="interview9" id="interview1430" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>3:00pm</label></td><td><input name="interview9" id="interview1500" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>3:30pm</label></td><td><input name="interview9" id="interview1530" type="checkbox"></td>
+                                </tr>
+                                <tr>
+                                    <td>If selected you will be receiving a phone call to schedule an interview for Tuesday October 8th, 2019 at 1 of the time slots above</td>
+                                </tr>
+                                </td></tr>
+                            </table>
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button type="button" class="btn btn-default prev-step">Back</button>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn btn-primary btn-info-full next-step">Finish!
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
